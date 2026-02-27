@@ -31,8 +31,15 @@ import Foundation
 
 class Solution {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-        // TODO: Solve
-        return []
+        for (index, num) in nums.enumerated() {
+            for (nestedIndex, nestedNums) in nums.enumerated() {
+                if index != nestedIndex, num + nestedNums == target {
+                    return [index, nestedIndex]
+                }
+            }
+        }
+        
+        fatalError()
     }
 }
 
