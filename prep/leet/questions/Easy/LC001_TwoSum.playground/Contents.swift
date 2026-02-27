@@ -31,44 +31,15 @@ import Foundation
 
 class Solution {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-        /*
-         Approach: Hash Map (One Pass)
-         - Use a dictionary to store number -> index mapping
-         - For each number, check if (target - number) exists in the map
-         - If found, return the current index and the stored index
-         - Otherwise, store the current number and its index
-
-         Time Complexity: O(n) - single pass through the array
-         Space Complexity: O(n) - hash map storage in worst case
-         */
-
-
-        var numToIndex: [Int: Int] = [:]
-
-        for (index, num) in nums.enumerated() {
-            let complement = target - num
-
-            if let complementIndex = numToIndex[complement] {
-                return [complementIndex, index]
-            }
-
-            numToIndex[num] = index
-        }
-
-        return [] // Should never reach here given constraints
+        // TODO: Solve
+        return []
     }
 }
 
 // Test Cases
 let solution = Solution()
-
-// Test Case 1
 print("Test 1: \(solution.twoSum([2, 7, 11, 15], 9))") // Expected: [0, 1]
-
-// Test Case 2
 print("Test 2: \(solution.twoSum([3, 2, 4], 6))") // Expected: [1, 2]
-
-// Test Case 3
 print("Test 3: \(solution.twoSum([3, 3], 6))") // Expected: [0, 1]
 
 /*
