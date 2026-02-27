@@ -26,8 +26,16 @@ import Foundation
 
 class Solution {
     func maxProfit(_ prices: [Int]) -> Int {
-        // TODO: Solve
-        return 0
+        var minPrice = prices[0] // 7
+        var maxProfit = 0
+
+        for price in prices {
+            // 7, 1
+            minPrice = min(minPrice, price) // reset to 1
+            maxProfit = max(maxProfit, price - minPrice)
+        }
+
+        return maxProfit
     }
 }
 
