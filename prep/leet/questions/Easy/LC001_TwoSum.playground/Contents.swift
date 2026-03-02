@@ -31,11 +31,15 @@ import Foundation
 
 class Solution {
     func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+        var seen: [Int: Int] = [:]  // value → index
+        
         for (index, num) in nums.enumerated() {
-            for (nestedIndex, nestedNums) in nums.enumerated() {
-                if index != nestedIndex, num + nestedNums == target {
-                    return [index, nestedIndex]
-                }
+            let complement = target - num
+            
+            if seen[complement] != nil {
+                return [seen[complement]!, index]
+            } else {
+                seen[num] = index
             }
         }
         

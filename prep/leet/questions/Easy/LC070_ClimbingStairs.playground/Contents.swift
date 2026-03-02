@@ -27,14 +27,37 @@ import Foundation
  */
 
 class Solution {
-    func climbStairs(_ n: Int) -> Int {
-        // TODO: Solve
-        return 0
+    static let oneStair = 1
+    static let twoSteps = 2
+    
+    func climbStairs(_ target: Int) -> Int {
+        compositions(target: target, using: [1,2]).count
     }
+    
+     func compositions(target: Int, using parts: [Int]) -> [[Int]] {
+          if target == 0 { return [[]] }
+          if target < 0 { return [] }
+
+          var results: [[Int]] = []
+         
+          for part in parts {
+              let subResults = compositions(target: target - part, using: parts)
+              for combo in subResults {
+                  results.append([part] + combo)
+              }
+          }
+          return results
+      }
 }
 
 // Test Cases
 let solution = Solution()
-print("Test 1: \(solution.climbStairs(2))") // Expected: 2
-print("Test 2: \(solution.climbStairs(3))") // Expected: 3
+//print("Test 1: \(solution.climbStairs(2))") // Expected: 2
+//print("Test 2: \(solution.climbStairs(3))") // Expected: 3
+
+// 1 1 1 1 1
+// 2 2 2 2
+// 2 1 1 1 1 1 1
+// 2 2 1 1 1
+// 2 2 2 1 1
 print("Test 3: \(solution.climbStairs(5))") // Expected: 8

@@ -30,15 +30,31 @@ import Foundation
 class ListNode {
     var val: Int
     var next: ListNode?
-    init() { self.val = 0; self.next = nil }
-    init(_ val: Int) { self.val = val; self.next = nil }
-    init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next }
+    
+    init() {
+        self.val = 0;
+        self.next = nil
+    }
+    
+    init(_ val: Int) {
+        self.val = val;
+        self.next = nil
+    }
+    
+    init(_ val: Int, _ next: ListNode?) {
+        self.val = val;
+        self.next = next
+    }
 }
 
 class Solution {
     func mergeTwoLists(_ list1: ListNode?, _ list2: ListNode?) -> ListNode? {
-        // TODO: Solve
-        return nil
+        var dummyList: ListNode?
+        
+        while list1Val > list2Val {
+        }
+        
+        return dummyList
     }
 }
 

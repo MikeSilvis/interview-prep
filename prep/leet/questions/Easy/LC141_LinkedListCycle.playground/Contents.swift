@@ -18,6 +18,7 @@ import Foundation
 class ListNode {
     var val: Int
     var next: ListNode?
+    
     init(_ val: Int) {
         self.val = val
         self.next = nil
@@ -26,7 +27,18 @@ class ListNode {
 
 class Solution {
     func hasCycle(_ head: ListNode?) -> Bool {
-        // TODO: Solve
+        var fast = head?.next?.next
+        var slow = head?.next
+        
+        while fast != nil, fast?.next != nil {
+            if fast === slow {
+                return true
+            }
+            
+            fast = fast?.next?.next
+            slow = slow?.next
+        }
+        
         return false
     }
 }

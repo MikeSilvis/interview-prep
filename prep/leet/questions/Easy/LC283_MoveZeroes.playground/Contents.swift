@@ -22,7 +22,20 @@ import Foundation
 
 class Solution {
     func moveZeroes(_ nums: inout [Int]) {
-        // TODO: Solve
+        var writeIndex = 0
+        
+        for i in 0..<nums.count {
+            let currentNumber = nums[i]
+            
+            if currentNumber != 0 {
+                nums[writeIndex] = currentNumber
+                writeIndex = writeIndex + 1
+            }
+        }
+        
+        for i in writeIndex..<nums.count {
+            nums[i] = 0
+        }
     }
 }
 

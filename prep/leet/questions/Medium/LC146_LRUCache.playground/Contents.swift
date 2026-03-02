@@ -26,18 +26,81 @@ import Foundation
  - At most 2 * 10^5 calls will be made to get and put.
  */
 
+class Node {
+    var key: Int
+    var value: Int
+    var prev: Node?
+    var next: Node?
+
+    init(_ key: Int, _ value: Int) {
+        self.key = key
+        self.value = value
+    }
+}
+
 class LRUCache {
+    var capacity: Int
+    var size: Int = 0
+    
+    var cache: [Int: Node] = [:]    // key → node
+    
+    var head = Node(0, 0)           // dummy head (most recent side)
+    var tail = Node(0, 0)           // dummy tail (least recent side)
+    
     init(_ capacity: Int) {
-        // TODO: Implement
+        self.capacity = capacity
+        head.next = tail
+        tail.prev = head
     }
 
     func get(_ key: Int) -> Int {
-        // TODO: Implement
+        if let node = cache[key] {
+            remove(node)
+            insertAfterHead(node)
+            
+            return node.value
+        }
+       
         return -1
     }
 
     func put(_ key: Int, _ value: Int) {
-        // TODO: Implement
+        // Replaces an existing value
+        if let node = cache[key] {
+            node.value = value
+            
+            remove(node)
+            insertAfterHead(node)
+            
+            return
+        }
+        
+        if let prev = tail.prev, capacity == size {
+            cache.removeValue(forKey: prev.key)
+            remove(prev)
+        }
+        
+        if capacity != size {
+            size += 1
+        }
+        
+        let newNode = Node(key, value)
+        cache[key] = newNode
+        insertAfterHead(newNode)
+    }
+    
+    // Remove a node from wherever it is
+    private func remove(_ node: Node) {
+        node.prev?.next = node.next
+        node.next?.prev = node.prev
+    }
+
+    // Insert a node right after HEAD (making it most recent)
+    private func insertAfterHead(_ node: Node) {
+        node.next = head.next
+        node.prev = head
+        head.next?.prev = node
+        head.next = node
     }
 }
 
@@ -45,17 +108,14 @@ class LRUCache {
 let lruCache = LRUCache(2)
 lruCache.put(1, 1)
 lruCache.put(2, 2)
+
 print("Get 1: \(lruCache.get(1))") // Expected: 1
 lruCache.put(3, 3) // Evicts key 2
+
 print("Get 2: \(lruCache.get(2))") // Expected: -1
 lruCache.put(4, 4) // Evicts key 1
+
 print("Get 1: \(lruCache.get(1))") // Expected: -1
 print("Get 3: \(lruCache.get(3))") // Expected: 3
 print("Get 4: \(lruCache.get(4))") // Expected: 4
 
-/*
- Follow-up Questions:
- 1. How would you implement an LFU (Least Frequently Used) cache?
- 2. What if you needed to support TTL (Time To Live) for cache entries?
- 3. How would you make this thread-safe for concurrent access?
- */

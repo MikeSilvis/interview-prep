@@ -27,8 +27,7 @@ import Foundation
 
 class Solution {
     func singleNumber(_ nums: [Int]) -> Int {
-        // TODO: Solve
-        return 0
+        nums.reduce(0) { $0 ^ $1 }
     }
 }
 

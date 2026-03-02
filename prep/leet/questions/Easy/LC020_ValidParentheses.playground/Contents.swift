@@ -36,14 +36,24 @@ class Solution {
     
     func isValid(_ s: String) -> Bool {
         let arrayOfS = Array(s)
+        var desiredClosingCharacter: [String] = []
         
-        for (index, char) in arrayOfS.enumerated() {
-            if let endingParanthesis = checker[String(char)], endingParanthesis == String(arrayOfS[index + 1]) {
-                return true
+        for char in arrayOfS {
+            // character is an opener
+            if let closingCharactrerNeeded = checker[String(char)] {
+                desiredClosingCharacter.append(closingCharactrerNeeded)
+            }
+            // character is a closer and has been seen
+            else if desiredClosingCharacter.last == String(char) {
+                desiredClosingCharacter.popLast()
+            }
+            // no matches
+            else {
+                return false
             }
         }
         
-        return false
+        return desiredClosingCharacter.count == 0
     }
 }
 
@@ -54,6 +64,7 @@ print("Test 2: \(solution.isValid("()[]{}"))") // Expected: true
 print("Test 3: \(solution.isValid("(]"))") // Expected: false
 print("Test 4: \(solution.isValid("([)]"))") // Expected: false
 print("Test 5: \(solution.isValid("{[]}"))") // Expected: true
+print("Test 6: \(solution.isValid("]("))") // Expected: false
 
 /*
  Follow-up Questions:

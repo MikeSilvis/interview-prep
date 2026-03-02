@@ -25,8 +25,21 @@ import Foundation
 
 class Solution {
     func productExceptSelf(_ nums: [Int]) -> [Int] {
-        // TODO: Solve
-        return []
+        var result = Array(repeating: 1, count: nums.count)
+        
+        var leftProduct = 1
+        for i in 0..<nums.count {
+            result[i] = leftProduct
+            leftProduct *= nums[i]
+        }
+        
+        var rightProduct = 1
+        for i in stride(from: nums.count - 1, through: 0, by: -1) {
+            result[i] *= rightProduct
+            rightProduct *= nums[i]
+        }
+        
+        return result
     }
 }
 
@@ -36,9 +49,3 @@ print("Test 1: \(solution.productExceptSelf([1, 2, 3, 4]))") // Expected: [24, 1
 print("Test 2: \(solution.productExceptSelf([-1, 1, 0, -3, 3]))") // Expected: [0, 0, 9, 0, 0]
 print("Test 3: \(solution.productExceptSelf([2, 3, 4, 5]))") // Expected: [60, 40, 30, 24]
 
-/*
- Follow-up Questions:
- 1. What if division was allowed? How would you solve it then?
- 2. How would you handle the case with multiple zeros in the array?
- 3. What if the array was very large and you needed to optimize for memory usage?
- */
