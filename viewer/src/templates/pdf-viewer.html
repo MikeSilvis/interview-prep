@@ -1,0 +1,32 @@
+<div class="space-y-4">
+  <div class="flex items-center justify-end gap-3">
+    <a href="{{pdfUrl}}" download class="btn btn-sm btn-outline gap-1">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        aria-hidden="true"
+        class="h-3.5 w-3.5"
+      >
+        <path
+          fill="currentColor"
+          d="M10 2a1 1 0 0 1 1 1v7.586l2.293-2.293a1 1 0 1 1 1.414 1.414l-4 4a1 1 0 0 1-1.414 0l-4-4A1 1 0 1 1 5.707 8.293L8 10.586V3a1 1 0 0 1 1-1Zm-5 12a1 1 0 0 1 1 1v1h8v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"
+        />
+      </svg>
+      <span>Download</span>
+    </a>
+  </div>
+  <div class="rounded-lg border border-base-300/70 overflow-hidden bg-base-100">
+    <object
+      data="{{pdfUrl}}#view=FitH"
+      type="application/pdf"
+      class="w-full"
+      style="height: calc(100vh - 8rem);"
+    >
+      <p class="p-4 text-sm">
+        Your browser could not display the PDF.
+        <a href="{{pdfUrl}}" class="link">Download it instead.</a>
+      </p>
+    </object>
+  </div>
+</div>
+
