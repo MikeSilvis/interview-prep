@@ -1,12 +1,6 @@
 ## Arrays & Strings
 
-<<<<<<< HEAD:content/prep/study-guide/algorithms/examples/arrays-strings.md
-Use this chapter as a **recipe book** for common array and string problems. The goal isn’t to memorize every line of code, but to recognize patterns and know which “lens” to reach for under pressure.
-
-||||||| parent of d51015a (update reuslts):prep/study-guide/algorithms/arrays-strings.md
-=======
 Use this chapter as a **recipe book** for common array and string problems. The goal isn’t to memorize every line of code, but to recognize **patterns** and know which “lens” to reach for under pressure.
->>>>>>> d51015a (update reuslts):prep/study-guide/algorithms/arrays-strings.md
 ---
 
 ### Why this matters in interviews
@@ -28,18 +22,6 @@ Think of this chapter as learning a **small set of templates** (sliding window, 
 
 ---
 
-<<<<<<< HEAD:content/prep/study-guide/algorithms/examples/arrays-strings.md
-### How to study this chapter
-
-- **Skim the patterns first** (fixed/variable window, two pointers, prefix sums) and make sure you could explain when to use each in plain language.
-- For each pattern, **hand‑trace** one or two examples on paper until the pointer or window movements feel automatic.
-- When you practice problems, **label** which pattern you’re using (“variable window with hash map”, “two pointers from ends”) so your brain builds the mapping.
-- After solving, spend 1–2 minutes asking: “Could this have been done with another pattern? Why is this one cleaner or more efficient?”
-
----
-
-||||||| parent of d51015a (update reuslts):prep/study-guide/algorithms/arrays-strings.md
-=======
 ### How to study this chapter
 
 Instead of grinding random problems, study **patterns and their triggers**.
@@ -74,7 +56,6 @@ Instead of grinding random problems, study **patterns and their triggers**.
     - **Production**: What extra checks or metrics would I add in real code?
 
 ---
->>>>>>> d51015a (update reuslts):prep/study-guide/algorithms/arrays-strings.md
 ### Core concepts
 
 #### Arrays vs strings
@@ -415,28 +396,6 @@ func rangeSum(_ prefix: [Int], from l: Int, to r: Int) -> Int {
 
 ---
 
-<<<<<<< HEAD:content/prep/study-guide/algorithms/examples/arrays-strings.md
-### Common gotchas & tradeoffs
-
-- **Off‑by‑one and window boundaries**
-  - Be explicit about whether your window is `[l, r]` or `[l, r)` and when it’s legal for `l == r + 1` (empty window). Many bugs come from updating `l` or `r` in the wrong order.
-- **Infinite loops in sliding windows**
-  - Make sure **both pointers move** in all code paths. If your condition fails and you neither expand nor shrink the window, you’ll spin forever.
-- **Unicode and indexing semantics**
-  - In production Swift, indexing into `String` by integer is invalid; be conscious of **grapheme clusters**. In interviews it’s usually fine to treat strings as arrays, but you can get bonus points by calling this out briefly.
-- **Copying large strings or slices**
-  - Repeated concatenation or building many substrings can silently turn an \(O(n)\) algorithm into \(O(n^2)\). Prefer working with indices, views, or appending to an array and joining at the end.
-- **Choosing between hash maps and frequency arrays**
-  - For small fixed alphabets (e.g., lowercase English letters), a plain array is faster and more memory‑efficient than a dictionary; for arbitrary Unicode or large ranges, a map is simpler and less error‑prone.
-- **Very large inputs and streaming data**
-  - Sliding window and two‑pointer patterns assume random access; for **streams** or data that doesn’t fit in memory, think in terms of **fixed‑size windows**, approximate statistics, or bounded buffers rather than exact answers.
-- **Cache‑friendliness and memory layout**
-  - Contiguous arrays are cache‑friendly; scattered data structures (linked lists, trees) have worse locality. For hot paths, prefer representations that keep data **packed and linear** even if they’re less “pure”.
-
----
-
-||||||| parent of d51015a (update reuslts):prep/study-guide/algorithms/arrays-strings.md
-=======
 ### Hashing & frequency counts
 
 Not a standalone pattern, but a **tool** used by others.
@@ -529,7 +488,7 @@ while left < right && conditionIsFalse {
 #### Choosing between hash maps and frequency arrays
 
 - **Small, fixed alphabet** (e.g., lowercase `a`–`z`):
-  - Use `[Int](repeating: 0, count: 26)` and index by `Int(ch.asciiValue - Character("a").asciiValue)`.
+  - Use `[Int](repeating: 0, count: 26)` and index by `Int(ch.asciiValue - Character(“a”).asciiValue)`.
 - **Large or unknown alphabet**:
   - Use `[Character: Int]` or `[String: Int]`.
 - Tradeoff:
@@ -554,7 +513,6 @@ while left < right && conditionIsFalse {
 This is rarely tested explicitly in interviews but good to mention when justifying array‑heavy designs.
 
 ---
->>>>>>> d51015a (update reuslts):prep/study-guide/algorithms/arrays-strings.md
 ### Interview Q&A
 
 #### Sliding window vs two pointers
