@@ -1,5 +1,11 @@
 # Mobile Q&A - Getting Stuff Done: Questions & Feedback Template
 
+This file is a **shared question and rubric template**. Keep it generic:
+
+- Use it as a source of interviewer prompts and rubrics.
+- Do **not** add your own answers here.
+- Instead, create `users/<your-name>/soft-skills/getting-stuff-done.md` (see `users/msilvis/soft-skills/getting-stuff-done.md` for an example) and write your answers there.
+
 ## Prompt
 
 > Hi [NAME], today [other interviewer] and I are here to talk to you about your past experience as an engineer. During this interview, we'll focus on **aspects of the job other than architecture & technical design**, including working with other team members, and how you learn & grow as an engineer.

@@ -13,11 +13,26 @@ A comprehensive Swift workbook for software engineering interview preparation, f
 3. **Run a page:**
    Select a page and press ⌘+Shift+Return to execute. Test results print as PASS/FAIL in the console.
 
-4. **Study workflow with Claude:**
-   - `/msilvis:help 016` — get a hint for a problem
-   - `/msilvis:help 016 approach` — get a step-by-step algorithm
-   - `/msilvis:help 016 solve` — get the full solution written into the file
-   - `/msilvis:reset 016` — reset a problem back to its TODO stub
+4. **Optional: Study workflow with an AI skill**
+
+   If you wire this playground to an AI skill, you can use slash commands like:
+
+   - `/leet:help 016` — get a hint for a problem
+   - `/leet:help 016 approach` — get a step-by-step algorithm
+   - `/leet:help 016 solve` — get the full solution written into the file
+   - `/leet:reset 016` — reset a problem back to its TODO stub
+
+   To create your own version:
+   - Define a skill under `.cursor/skills/` (see the repo `README.md` for the pattern).
+   - Choose whatever prefix you like (for example, `/prep:help 016`).
+
+## Pairing with the study guides
+
+- For algorithms refreshers and patterns, use the **Algorithms & Data Structures Study Guide** under `prep/study-guide/algorithms/`.
+- A simple workflow:
+  - Skim the relevant topic file (for example, arrays/strings or dynamic programming).
+  - Pick a matching problem from this playground and implement it in Swift.
+  - After solving, map your solution back to the patterns described in the guide.
 
 ## Naming Convention
 

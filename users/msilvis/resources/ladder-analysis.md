@@ -1,5 +1,12 @@
 # Ladder Analysis: Square History vs Resume vs Career Ladder
 
+These are **personal notes for the `msilvis` profile**, mapping one engineer’s history to a specific public career ladder.
+
+If you are reusing this workspace:
+
+- Treat this file as an example of how to analyze your own history.
+- Create your own ladder analysis under `users/<your-name>/resources/` rather than editing this one.
+
 ## Ladder Alignment: Where Your History Proves L6 (and Reaches Into L7)
 
 ### Scope & Impact
