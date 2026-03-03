@@ -1,0 +1,25 @@
+<li>
+  <details class="group" {{openAttr}}>
+    <summary
+      class="sidebar-folder-summary flex items-center gap-x-2 px-2 py-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-base-content/60 leading-4"
+      data-depth="{{depth}}"
+    >
+      <span class="flex-1 truncate">{{label}}</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 20 20"
+        aria-hidden="true"
+        class="h-3.5 w-3.5 shrink-0 text-base-content/50 transition-transform duration-200 group-open:rotate-90"
+      >
+        <path
+          fill="currentColor"
+          d="M7.293 3.293a1 1 0 0 0 0 1.414L11.586 9l-4.293 4.293a1 1 0 1 0 1.414 1.414l5-5a1 1 0 0 0 0-1.414l-5-5a1 1 0 0 0-1.414 0Z"
+        />
+      </svg>
+    </summary>
+    <ul class="mt-1 space-y-0.5">
+      {{children}}
+    </ul>
+  </details>
+</li>
+

@@ -1,0 +1,59 @@
+---
+description: Interview prep workspace layout and AI usage
+alwaysApply: true
+---
+
+# Interview prep workspace
+
+This project is an interview-prep workspace built around:
+
+- Shared study content under `content/prep/`
+- Per-user notes and answers under `content/<username>/`
+- A small set of AI skills in `.cursor/skills/` (for study sessions, soft-skills answers, and progress resets)
+
+## Layout conventions
+
+- **Shared, general-purpose material**
+  - Lives under `content/prep/`
+  - Includes:
+    - Algorithm and Swift study guides (e.g. `content/prep/study-guide/algorithms/README.md`)
+    - Swift LeetCode playground and README (under `content/prep/leet/`)
+    - Behavioral question templates and rubrics (under `content/prep/soft-skills/`)
+
+- **User-specific material**
+  - Lives under `content/<username>/`
+  - For example, `content/msilvis/...` contains:
+    - `resources/` – work history and reference docs (e.g. `square-history.md`)
+    - `soft-skills/` – user-specific behavioral answers (e.g. `getting-stuff-done.md`)
+
+When helping the user, keep **shared templates** and **personal answers** separate. Do not write personal answers into `content/prep/`; prefer `content/<username>/...` instead.
+
+## AI skills and commands
+
+This workspace has profile-specific skills for `msilvis`:
+
+- `msilvis:study-prep <question-id>`
+  - Run interactive, step-by-step study sessions for a single question.
+  - Behave as a tutor: ask questions, give hints, and only reveal full solutions when requested.
+
+- `msilvis:soft-skills <username> <topic-slug> [mode-flags]`
+  - Generate or refine behavioral answers based on:
+    - Templates in `content/prep/soft-skills`
+    - Resources in `content/<username>/resources`
+    - Answers in `content/<username>/soft-skills`
+  - For this repo, `content/msilvis/...` is the concrete example.
+
+- `msilvis:reset-questions`
+  - Reset study progress context so all questions are treated as fresh in the current session.
+  - Do **not** modify files unless the user explicitly requests a file-based reset.
+
+For a human-facing overview of these commands and paths, reference `CLAUDE.md`.
+
+## When answering questions about this repo
+
+- Prefer pointing users to:
+  - `README.md` for high-level repo layout and tooling.
+  - `CLAUDE.md` for how to drive Claude/Cursor and the skills.
+- When the user asks where something lives:
+  - Link to the relevant `content/prep/...` or `content/<username>/...` path instead of inventing new structure.
+

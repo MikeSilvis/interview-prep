@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-ash-grey: #b4b8ab;
+    --color-deep-space-blue: #153243;
+    --color-yale-blue: #284b63;
+    --color-ivory: #f4f9e9;
+    --color-soft-linen: #eef0eb;
+  }
+
+  body {
+    @apply antialiased bg-base-100 text-base-content;
+  }
+}
+
+@layer components {
+  .app-shell {
+    @apply min-h-screen flex bg-base-100;
+  }
+
+  .app-sidebar {
+    @apply h-full w-[36rem] border-r border-base-300/40 overflow-y-auto p-4 bg-base-100;
+  }
+
+  .app-main {
+    @apply flex-1 overflow-y-auto p-6 md:p-8;
+  }
+}
+
+@layer utilities {
+  .app-sidebar .menu :where(li ul) {
+    margin-inline-start: 0.5rem;
+    padding-inline-start: 0.25rem;
+  }
+
+  .prose pre {
+    @apply bg-base-200/80 rounded-xl p-4 md:p-5 overflow-x-auto shadow-sm relative;
+  }
+
+  .prose code {
+    @apply font-mono text-[0.85rem];
+  }
+
+  /* Inline code: no box, just font + color */
+  .prose :not(pre) > code {
+    @apply bg-transparent p-0 text-primary font-mono text-[0.85rem] rounded-none;
+  }
+
+  .prose h1 {
+    @apply text-2xl md:text-3xl font-semibold mb-5 tracking-tight;
+  }
+
+  .prose h2 {
+    @apply text-xl md:text-2xl mt-6 mb-3 tracking-tight;
+  }
+
+  .prose h3 {
+    @apply text-lg md:text-xl mt-5 mb-2 tracking-tight;
+  }
+
+  .prose p {
+    @apply text-[0.96rem] md:text-[0.98rem] leading-relaxed my-1.5 md:my-2;
+  }
+
+  .prose a {
+    @apply text-primary underline-offset-2 hover:underline;
+  }
+
+  .prose table {
+    @apply w-full table-auto text-sm border-separate border-spacing-0;
+  }
+
+  .prose thead tr {
+    @apply bg-base-200/80;
+  }
+
+  .prose thead th {
+    @apply text-xs font-semibold uppercase tracking-wide text-base-content/70;
+  }
+
+  .prose table th,
+  .prose table td {
+    @apply px-3 py-2 border border-base-300/70;
+  }
+
+  .prose tbody tr:nth-child(even) {
+    @apply bg-base-100;
+  }
+
+  .prose tbody tr:nth-child(odd) {
+    @apply bg-base-200/40;
+  }
+
+  .prose tbody tr:hover {
+    @apply bg-primary/5;
+  }
+
+  .prose table thead tr:first-child th:first-child {
+    @apply rounded-tl-lg;
+  }
+
+  .prose table thead tr:first-child th:last-child {
+    @apply rounded-tr-lg;
+  }
+
+  .prose table tbody tr:last-child td:first-child {
+    @apply rounded-bl-lg;
+  }
+
+  .prose table tbody tr:last-child td:last-child {
+    @apply rounded-br-lg;
+  }
+
+  .prose blockquote {
+    @apply border-l-4 border-primary/40 bg-base-200/40 px-4 py-3 rounded-r-lg text-base-content/90;
+  }
+
+  .prose ul {
+    /* Tighter bullets: smaller vertical margins + less gap between items */
+    @apply list-disc pl-6 my-1 space-y-0.5;
+  }
+
+  .prose ol {
+    /* Match bullet spacing for numbered lists */
+    @apply list-decimal pl-6 my-1 space-y-0.5;
+  }
+
+  .prose li {
+    /* Match paragraph line-height so bullets and body text feel identical */
+    @apply leading-relaxed;
+  }
+
+  .prose li > p {
+    /* Keep wrapped lines and spacing in bullets identical to normal paragraphs, without extra gaps */
+    @apply leading-relaxed my-0;
+  }
+
+  .prose hr {
+    @apply border-base-300/60 my-8;
+  }
+}
+
