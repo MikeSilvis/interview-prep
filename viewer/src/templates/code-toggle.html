@@ -1,0 +1,40 @@
+<div
+  class="mb-4 rounded-lg border border-base-300/70 overflow-hidden bg-base-100"
+  data-code-toggle
+>
+  <div
+    class="flex items-center justify-end gap-x-2 border-b border-base-300/60 bg-base-100/95 px-3 py-1.5 text-xs text-base-content/80"
+    role="tablist"
+    aria-label="Language toggle"
+  >
+    <button
+      type="button"
+      class="px-2 py-0.5 rounded-md border border-base-300/70 bg-primary text-primary-content text-[11px] font-semibold tracking-[0.18em] uppercase"
+      data-lang="swift"
+      data-code-toggle-btn
+      role="tab"
+      aria-selected="true"
+    >
+      Swift
+    </button>
+    <button
+      type="button"
+      class="px-2 py-0.5 rounded-md border border-base-300/40 bg-base-100 text-base-content/70 text-[11px] font-semibold tracking-[0.18em] uppercase"
+      data-lang="kotlin"
+      data-code-toggle-btn
+      role="tab"
+      aria-selected="false"
+    >
+      Kotlin
+    </button>
+  </div>
+  <div class="bg-base-100" data-code-toggle-body>
+    <div data-code-panel data-lang="swift">
+      {{swiftBlock}}
+    </div>
+    <div data-code-panel data-lang="kotlin" hidden>
+      {{kotlinBlock}}
+    </div>
+  </div>
+</div>
+
